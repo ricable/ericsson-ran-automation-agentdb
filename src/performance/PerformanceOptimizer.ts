@@ -5,7 +5,7 @@
 
 import { EventEmitter } from 'events';
 
-interface PerformanceConfig {
+export interface PerformanceConfig {
   targetSolveRate: number;
   speedImprovement: string;
   tokenReduction: number;

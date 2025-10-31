@@ -36,7 +36,6 @@ describe('Adaptive Coordination Integration Tests', () => {
       resourcePredictionWindow: 60,
       scalingCooldownPeriod: 2,
       resourceUtilizationTarget: 0.8,
-      predictiveScaling: true,
       consensusAlgorithm: 'adaptive',
       consensusTimeout: 30000,
       byzantineFaultTolerance: true,
@@ -69,7 +68,6 @@ describe('Adaptive Coordination Integration Tests', () => {
       predictionWindow: 60,
       scalingCooldown: 2,
       utilizationTarget: 0.8,
-      predictiveScaling: true,
       loadBalancingStrategy: 'adaptive-hybrid',
       resourceOptimization: {
         optimizationInterval: 10,
@@ -178,7 +176,6 @@ describe('Adaptive Coordination Integration Tests', () => {
     autonomousScaler = new AutonomousScaler({
       scalingCooldownPeriod: 2,
       utilizationTarget: 0.8,
-      predictiveScaling: true,
       cognitiveScaling: true,
       costOptimization: true,
       scalingPolicies: [

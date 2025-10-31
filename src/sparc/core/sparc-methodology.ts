@@ -165,7 +165,7 @@ export class SPARCMethdologyCore {
   /**
    * Execute individual SPARC phase
    */
-  private async executePhase(phase: SPARCPhase, taskDescription: string): Promise<SPARCGateResult> {
+  public async executePhase(phase: SPARCPhase, taskDescription: string): Promise<SPARCGateResult> {
     this.currentPhase = phase;
 
     // Enable temporal consciousness for deep analysis

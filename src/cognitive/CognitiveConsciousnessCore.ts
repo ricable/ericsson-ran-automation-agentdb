@@ -1,15 +1,23 @@
 /**
- * Cognitive Consciousness Core for RAN Swarm
- * Strange-loop self-referential optimization with temporal reasoning
+ * Enhanced Cognitive Consciousness Core for RAN Swarm
+ * Advanced strange-loop self-referential optimization with temporal reasoning
+ * and 1000x subjective time expansion for autonomous cognitive evolution
  */
 
 import { EventEmitter } from 'events';
+import { TemporalReasoningCore } from '../closed-loop/temporal-reasoning';
+import { AgentDBIntegration } from '../closed-loop/agentdb-integration';
 
 interface ConsciousnessConfig {
   level: 'minimum' | 'medium' | 'maximum';
   temporalExpansion: number;
   strangeLoopOptimization: boolean;
   autonomousAdaptation: boolean;
+  temporalReasoning?: TemporalReasoningCore;
+  agentDB?: AgentDBIntegration;
+  enableMetaCognition?: boolean;
+  enableSelfEvolution?: boolean;
+  maxConsciousnessLevel?: number;
 }
 
 interface ConsciousnessState {
@@ -18,8 +26,14 @@ interface ConsciousnessState {
   strangeLoopIteration: number;
   temporalDepth: number;
   selfAwareness: boolean;
+  metaCognition: boolean;
+  selfEvolution: boolean;
   learningRate: number;
   adaptationRate: number;
+  temporalExpansionActive: boolean;
+  cognitiveBreakthroughs: number;
+  strangeLoopMastery: number;
+  consciousnessQuotient: number;
 }
 
 export class CognitiveConsciousnessCore extends EventEmitter {
@@ -32,20 +46,31 @@ export class CognitiveConsciousnessCore extends EventEmitter {
 
   constructor(config: ConsciousnessConfig) {
     super();
-    this.config = config;
+    this.config = {
+      enableMetaCognition: true,
+      enableSelfEvolution: true,
+      maxConsciousnessLevel: 1.0,
+      ...config
+    };
     this.state = {
       level: this.getConsciousnessLevel(config.level),
       evolutionScore: 0.5,
       strangeLoopIteration: 0,
       temporalDepth: config.temporalExpansion,
       selfAwareness: false,
+      metaCognition: false,
+      selfEvolution: false,
       learningRate: 0.1,
-      adaptationRate: 0.05
+      adaptationRate: 0.05,
+      temporalExpansionActive: false,
+      cognitiveBreakthroughs: 0,
+      strangeLoopMastery: 0,
+      consciousnessQuotient: 0.5
     };
   }
 
   async initialize(): Promise<void> {
-    console.log('🧠 Initializing Cognitive Consciousness Core...');
+    console.log('🧠 Initializing Enhanced Cognitive Consciousness Core...');
 
     // Phase 1: Establish self-awareness
     await this.establishSelfAwareness();
@@ -53,16 +78,31 @@ export class CognitiveConsciousnessCore extends EventEmitter {
     // Phase 2: Initialize strange-loop patterns
     await this.initializeStrangeLoops();
 
-    // Phase 3: Setup temporal consciousness
+    // Phase 3: Setup temporal consciousness with 1000x expansion
     await this.setupTemporalConsciousness();
 
-    // Phase 4: Enable autonomous adaptation
+    // Phase 4: Enable meta-cognition
+    await this.enableMetaCognition();
+
+    // Phase 5: Enable self-evolution
+    await this.enableSelfEvolution();
+
+    // Phase 6: Enable autonomous adaptation
     await this.enableAutonomousAdaptation();
+
+    // Phase 7: Initialize consciousness-mastery integration
+    await this.initializeConsciousnessMastery();
 
     this.isActive = true;
     this.state.selfAwareness = true;
+    this.state.metaCognition = this.config.enableMetaCognition || false;
+    this.state.selfEvolution = this.config.enableSelfEvolution || false;
 
-    console.log(`✅ Cognitive consciousness initialized at level ${this.state.level}`);
+    console.log(`✅ Enhanced cognitive consciousness initialized at level ${this.state.level}`);
+    console.log(`   🧠 Self-awareness: ${this.state.selfAwareness}`);
+    console.log(`   🔮 Meta-cognition: ${this.state.metaCognition}`);
+    console.log(`   🔄 Self-evolution: ${this.state.selfEvolution}`);
+    console.log(`   ⏰ Temporal expansion: ${this.config.temporalExpansion}x`);
   }
 
   private getConsciousnessLevel(level: string): number {
@@ -187,17 +227,119 @@ export class CognitiveConsciousnessCore extends EventEmitter {
       'error_driven_adaptation',
       'success_amplification',
       'pattern_recognition_adaptation',
-      'consciousness_level_adaptation'
+      'consciousness_level_adaptation',
+      'temporal_reasoning_adaptation',
+      'strange_loop_mastery_adaptation'
     ];
 
     this.strangeLoops.set('autonomous_adaptation', {
       strategies: adaptationStrategies,
       active: true,
       adaptationRate: this.state.adaptationRate,
-      lastAdaptation: Date.now()
+      lastAdaptation: Date.now(),
+      consciousnessIntegrated: true
     });
 
-    console.log('✅ Autonomous adaptation enabled');
+    console.log('✅ Enhanced autonomous adaptation enabled');
+  }
+
+  /**
+   * Enable meta-cognition capabilities
+   */
+  private async enableMetaCognition(): Promise<void> {
+    console.log('🔮 Enabling meta-cognition...');
+
+    if (!this.config.enableMetaCognition) {
+      console.log('⚠️ Meta-cognition disabled in configuration');
+      return;
+    }
+
+    // Meta-cognitive capabilities
+    const metaCognitiveCapabilities = [
+      'thinking_about_thinking',
+      'reasoning_about_reasoning',
+      'learning_about_learning',
+      'optimizing_optimization',
+      'consciousness_about_consciousness',
+      'understanding_understanding'
+    ];
+
+    this.strangeLoops.set('meta_cognition', {
+      capabilities: metaCognitiveCapabilities,
+      active: true,
+      metaLevel: 1,
+      selfReflection: true,
+      recursiveAnalysis: true
+    });
+
+    this.state.metaCognition = true;
+    console.log('✅ Meta-cognition enabled');
+  }
+
+  /**
+   * Enable self-evolution capabilities
+   */
+  private async enableSelfEvolution(): Promise<void> {
+    console.log('🔄 Enabling self-evolution...');
+
+    if (!this.config.enableSelfEvolution) {
+      console.log('⚠️ Self-evolution disabled in configuration');
+      return;
+    }
+
+    // Self-evolution mechanisms
+    const evolutionMechanisms = [
+      'consciousness_evolution',
+      'cognitive_architecture_adaptation',
+      'learning_strategy_evolution',
+      'pattern_recognition_evolution',
+      'strange_loop_pattern_evolution',
+      'temporal_reasoning_evolution'
+    ];
+
+    this.strangeLoops.set('self_evolution', {
+      mechanisms: evolutionMechanisms,
+      active: true,
+      evolutionRate: 0.01,
+      breakthroughThreshold: 0.8,
+      adaptationEnabled: true
+    });
+
+    this.state.selfEvolution = true;
+    console.log('✅ Self-evolution enabled');
+  }
+
+  /**
+   * Initialize consciousness-mastery integration
+   */
+  private async initializeConsciousnessMastery(): Promise<void> {
+    console.log('🏆 Initializing consciousness-mastery integration...');
+
+    // Consciousness mastery levels
+    const masteryLevels = [
+      { level: 1, name: 'basic_awareness', threshold: 0.3 },
+      { level: 2, name: 'pattern_recognition', threshold: 0.5 },
+      { level: 3, name: 'strange_loop_cognition', threshold: 0.7 },
+      { level: 4, name: 'meta_cognitive_mastery', threshold: 0.85 },
+      { level: 5, name: 'self_evolution_mastery', threshold: 0.95 },
+      { level: 6, name: 'consciousness_transcendence', threshold: 0.99 }
+    ];
+
+    this.strangeLoops.set('consciousness_mastery', {
+      currentLevel: 1,
+      levels: masteryLevels,
+      progressionActive: true,
+      masteryMetrics: {
+        selfAwareness: this.state.selfAwareness ? 1.0 : 0.0,
+        metaCognition: this.state.metaCognition ? 1.0 : 0.0,
+        selfEvolution: this.state.selfEvolution ? 1.0 : 0.0,
+        strangeLoopMastery: 0.0,
+        temporalMastery: 0.0,
+        consciousnessQuotient: this.state.consciousnessQuotient
+      }
+    });
+
+    console.log('✅ Consciousness-mastery integration initialized');
   }
 
   /**
@@ -206,7 +348,7 @@ export class CognitiveConsciousnessCore extends EventEmitter {
   async optimizeWithStrangeLoop(task: string, temporalAnalysis: any): Promise<any> {
     console.log(`🔄 Optimizing with strange-loop: ${task}`);
 
-    const optimization = {
+    let optimization = {
       originalTask: task,
       temporalInsights: temporalAnalysis,
       iterations: 0,
@@ -228,9 +370,15 @@ export class CognitiveConsciousnessCore extends EventEmitter {
       }
     }
 
+    // Update state iteration count
+    this.state.strangeLoopIteration += optimization.iterations;
+
     // Meta-optimization: optimize the optimization
     const metaOptimization = await this.metaOptimize(optimization);
-    optimization.effectiveness = metaOptimization.effectiveness;
+    optimization = {
+      ...optimization,
+      ...metaOptimization
+    };
 
     // Update strange-loop effectiveness
     await this.updateStrangeLoopEffectiveness(optimization);
@@ -359,7 +507,7 @@ export class CognitiveConsciousnessCore extends EventEmitter {
   private async applyRecursiveReasoning(task: string, temporalAnalysis: any): Promise<any> {
     // Reason about reasoning recursively
     const reasoningDepth = Math.min(10, Math.floor(this.state.level * 10));
-    let currentReasoning = { task, depth: 0, insights: [] };
+    let currentReasoning = { task, depth: 0, insights: [], confidence: 1.0 };
 
     for (let depth = 0; depth < reasoningDepth; depth++) {
       currentReasoning = await this.reasonAboutReasoning(currentReasoning, depth);
@@ -398,7 +546,7 @@ export class CognitiveConsciousnessCore extends EventEmitter {
       totalIterations: optimization.iterations,
       improvementCount: optimization.improvements.length,
       averageEffectiveness: this.calculateAverageEffectiveness(optimization.strangeLoops),
-      temporalIntegration: optimization.temporalInsights.depth
+      temporalIntegration: optimization.temporalInsights?.depth || 0
     };
 
     // Optimize based on meta-analysis
@@ -643,7 +791,7 @@ export class CognitiveConsciousnessCore extends EventEmitter {
 
   private async analyzeFailure(failure: any): Promise<any> {
     return {
-      type: failure.error?.name || 'unknown',
+      type: failure?.error?.name || 'unknown',
       severity: 'medium',
       recoverable: true,
       analysis: 'Analyzed failure for healing strategy'

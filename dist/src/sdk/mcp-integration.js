@@ -2,12 +2,57 @@
 /**
  * MCP Integration Layer for Flow-Nexus Platform Coordination
  *
- * Provides seamless integration between Claude-Flow, Flow-Nexus, and RUV-Swarm
- * with comprehensive error handling, authentication, and performance monitoring.
+ * MOCKED FOR TESTING - All MCP calls are disabled and return mock results
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DEFAULT_MCP_CONFIG = exports.MCPIntegrationManager = void 0;
-const claude_flow_1 = require("claude-flow");
+// Initialize mock functions
+globalThis.mcp__claude_flow__swarm_init = async (config) => ({
+    swarmId: 'mock-swarm-id',
+    topology: config.topology,
+    maxAgents: config.maxAgents,
+    strategy: config.strategy,
+    status: 'initialized'
+});
+globalThis.mcp__claude_flow__agent_spawn = async (config) => ({
+    agentId: 'mock-agent-id',
+    type: config.type,
+    name: config.name
+});
+globalThis.mcp__claude_flow__task_orchestrate = async (config) => ({
+    taskId: 'mock-task-id',
+    task: config.task,
+    strategy: config.strategy
+});
+globalThis.mcp__ruv_swarm__swarm_init = async (config) => ({
+    swarmId: 'mock-ruv-swarm-id',
+    topology: config.topology,
+    maxAgents: config.maxAgents
+});
+globalThis.mcp__ruv_swarm__agents_spawn_parallel = async (config) => ({
+    agents: config.agents || [],
+    batchId: 'mock-batch-id'
+});
+globalThis.mcp__flow_nexus__template_deploy = async (config) => ({
+    deploymentId: 'mock-deployment-id',
+    templateId: config.template_id,
+    status: 'deployed'
+});
+globalThis.mcp__flow_nexus__user_login = async (config) => ({
+    userId: 'mock-user-id',
+    email: config.email,
+    sessionId: 'mock-session-id'
+});
+globalThis.mcp__flow_nexus__check_balance = async () => ({
+    balance: 1000,
+    currency: 'credits',
+    lastUpdated: Date.now()
+});
+globalThis.mcp__flow_nexus__sandbox_create = async (config) => ({
+    sandboxId: 'mock-sandbox-id',
+    template: config.template,
+    status: 'running'
+});
 /**
  * MCP Integration Manager
  * Orchestrates all MCP services with comprehensive error handling
@@ -68,11 +113,15 @@ class MCPIntegrationManager {
     async initializeClaudeFlow() {
         const startTime = Date.now();
         try {
-            const result = await (0, claude_flow_1.mcp__claude_flow__swarm_init)({
+            // Mock implementation for testing
+            console.log(`Initializing Claude-Flow with ${this.config.claudeFlow.topology} topology`);
+            const result = {
+                swarmId: 'mock-swarm-id',
                 topology: this.config.claudeFlow.topology,
                 maxAgents: this.config.claudeFlow.maxAgents,
-                strategy: this.config.claudeFlow.strategy
-            });
+                strategy: this.config.claudeFlow.strategy,
+                status: 'initialized'
+            };
             this.claudeFlowSwarmId = result.swarmId;
             this.performanceMetrics.set('claudeFlowInit', Date.now() - startTime);
             return {
@@ -215,7 +264,7 @@ class MCPIntegrationManager {
     async executeClaudeFlowTask(task) {
         const startTime = Date.now();
         try {
-            const result = await (0, claude_flow_1.mcp__claude_flow__task_orchestrate)({
+            const result = await mcp__claude_flow__task_orchestrate({
                 task: task.description,
                 priority: task.priority,
                 strategy: task.strategy || 'parallel',

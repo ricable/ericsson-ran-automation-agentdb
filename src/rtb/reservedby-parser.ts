@@ -6,7 +6,8 @@ export class ReservedByParser {
     totalRelationships: 0,
     relationships: new Map(),
     classDependencies: new Map(),
-    constraintValidation: new Map()
+    constraintValidation: new Map(),
+    circularDependencies: []
   };
 
   async parseReservedBy(filePath: string): Promise<ReservedByHierarchy> {

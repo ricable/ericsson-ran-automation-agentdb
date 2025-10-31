@@ -947,6 +947,19 @@ class WASMTemporalProcessor {
 
     return patterns;
   }
+
+  /**
+   * Shutdown temporal reasoning and cleanup resources
+   */
+  public async shutdown(): Promise<void> {
+    // Clear temporal cache
+    this.temporalCache.clear();
+
+    // Emit shutdown event
+    this.emit('shutdown');
+
+    console.log('SPARC Temporal Reasoning shutdown completed');
+  }
 }
 
 export default SPARCTemporalReasoning;
