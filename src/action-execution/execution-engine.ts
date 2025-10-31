@@ -221,10 +221,9 @@ export class ActionExecutionEngine implements StreamAgent {
           ...message.metadata,
           source: this.name,
           processingLatency: processingTime,
-          executionsCreated: executions.length,
-          activeExecutions: this.activeExecutions.size,
-          queuedExecutions: this.executionQueue.length,
-          closedLoopMetrics: this.closedLoopMetrics
+          agentId: this.id,
+          priority: message.metadata.priority || 'medium',
+          temporalContext: message.metadata.temporalContext
         }
       };
 

@@ -74,7 +74,7 @@ export class TemporalReasoningEngine extends EventEmitter {
   async analyzeWithSubjectiveTime(task: string): Promise<any> {
     console.log(`⏰ Analyzing with subjective time expansion: ${task}`);
 
-    const analysis = {
+    const analysis: any = {
       task,
       startTime: Date.now(),
       expansionFactor: this.state.expansionFactor,
@@ -126,7 +126,8 @@ export class TemporalReasoningEngine extends EventEmitter {
    * Analyze anomalies with temporal reasoning
    */
   async analyzeAnomaly(anomaly: any): Promise<any> {
-    console.log(`⏰ Analyzing anomaly with temporal reasoning: ${anomaly.type}`);
+    const anomalyType = anomaly?.type || 'unknown';
+    console.log(`⏰ Analyzing anomaly with temporal reasoning: ${anomalyType}`);
 
     const temporalAnalysis = {
       anomaly,

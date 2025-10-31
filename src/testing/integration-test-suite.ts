@@ -7,7 +7,7 @@
 
 import { RANOptimizationSDK, type RANOptimizationConfig } from '../sdk/ran-optimization-sdk';
 import { MCPIntegrationManager, type MCPIntegrationConfig } from '../sdk/mcp-integration';
-import { PerformanceOptimizer, type PerformanceConfig } from '../sdk/performance-optimizer';
+// import { PerformanceOptimizer, type PerformanceConfig } from '../sdk/performance-optimizer'; // Temporarily commented
 
 /**
  * Test Configuration
@@ -149,7 +149,7 @@ export class IntegrationTestSuite {
   private config: TestConfig;
   private sdk: RANOptimizationSDK;
   private mcpManager: MCPIntegrationManager;
-  private performanceOptimizer: PerformanceOptimizer;
+  private performanceOptimizer: any; // PerformanceOptimizer;
   private testResults: TestResult[] = [];
 
   constructor(
@@ -161,7 +161,7 @@ export class IntegrationTestSuite {
     this.config = config;
     this.sdk = new RANOptimizationSDK(sdkConfig);
     this.mcpManager = new MCPIntegrationManager(mcpConfig);
-    this.performanceOptimizer = new PerformanceOptimizer(perfConfig);
+    // this.performanceOptimizer = new PerformanceOptimizer(perfConfig); // Temporarily commented
   }
 
   /**
