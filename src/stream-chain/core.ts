@@ -68,7 +68,7 @@ export interface PerformanceConfig {
 export interface ErrorHandlingStrategy {
   strategy: 'retry' | 'circuit-breaker' | 'fallback' | 'self-heal';
   maxAttempts: number;
-  recoveryPattern: 'linear' | 'exponential' | 'cognitive';
+  recoveryPattern: 'linear' | 'exponential' | 'cognitive' | 'adaptive';
 }
 
 export class StreamChain {

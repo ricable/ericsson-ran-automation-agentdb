@@ -6,16 +6,7 @@
  */
 
 import { mcp__claude_flow__swarm_init, mcp__claude_flow__agent_spawn, mcp__claude_flow__task_orchestrate } from 'claude-flow';
-import {
-  mcp__flow_nexus__user_login,
-  mcp__flow_nexus__check_balance,
-  mcp__flow_nexus__sandbox_create,
-  mcp__flow_nexus__template_deploy
-} from 'flow-nexus';
-import {
-  mcp__ruv_swarm__swarm_init,
-  mcp__ruv_swarm__agents_spawn_parallel
-} from 'ruv-swarm';
+// Note: flow-nexus and ruv-swarm imports handled via MCP dynamically
 
 /**
  * MCP Integration Configuration
