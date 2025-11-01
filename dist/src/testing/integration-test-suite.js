@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DEFAULT_TEST_CONFIG = exports.IntegrationTestSuite = void 0;
 const ran_optimization_sdk_1 = require("../sdk/ran-optimization-sdk");
 const mcp_integration_1 = require("../sdk/mcp-integration");
+const PerformanceOptimizer_1 = require("../performance/PerformanceOptimizer");
 /**
  * Comprehensive Integration Test Suite
  */
@@ -18,7 +19,7 @@ class IntegrationTestSuite {
         this.config = config;
         this.sdk = new ran_optimization_sdk_1.RANOptimizationSDK(sdkConfig);
         this.mcpManager = new mcp_integration_1.MCPIntegrationManager(mcpConfig);
-        // this.performanceOptimizer = new PerformanceOptimizer(perfConfig); // Temporarily commented
+        this.performanceOptimizer = new PerformanceOptimizer_1.PerformanceOptimizer(perfConfig);
     }
     /**
      * Execute comprehensive test suite

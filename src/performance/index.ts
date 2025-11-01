@@ -9,6 +9,7 @@ export { RealTimeDashboard } from './dashboard/RealTimeDashboard';
 export { CognitiveAnalytics } from './analytics/CognitiveAnalytics';
 export { PerformanceReporter } from './reporting/PerformanceReporter';
 export { PerformanceOrchestrator } from './orchestration/PerformanceOrchestrator';
+export { PerformanceMonitoringSystem } from './PerformanceMonitoringSystem';
 
 export { AgentDBMonitor } from '../integration/agentdb/AgentDBMonitor';
 

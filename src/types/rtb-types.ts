@@ -3,11 +3,14 @@ export interface RTBParameter {
   name: string;
   vsDataType: string;
   type: string;
-  constraints?: Record<string, any>;
+  constraints?: ConstraintSpec[] | Record<string, any>;
   description?: string;
+  defaultValue?: any;
   hierarchy: string[];
   source: string;
   extractedAt: Date;
+  structureGroups?: string[];
+  navigationPaths?: string[];
 }
 
 export interface MOClass {

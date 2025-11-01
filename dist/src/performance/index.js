@@ -18,7 +18,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.quickStartPerformanceMonitoring = exports.createPerformanceMonitoringSystem = exports.AgentDBMonitor = exports.PerformanceOrchestrator = exports.PerformanceReporter = exports.CognitiveAnalytics = exports.RealTimeDashboard = exports.BottleneckDetector = exports.PerformanceCollector = void 0;
+exports.quickStartPerformanceMonitoring = exports.createPerformanceMonitoringSystem = exports.AgentDBMonitor = exports.PerformanceMonitoringSystem = exports.PerformanceOrchestrator = exports.PerformanceReporter = exports.CognitiveAnalytics = exports.RealTimeDashboard = exports.BottleneckDetector = exports.PerformanceCollector = void 0;
 var PerformanceCollector_1 = require("./monitoring/PerformanceCollector");
 Object.defineProperty(exports, "PerformanceCollector", { enumerable: true, get: function () { return PerformanceCollector_1.PerformanceCollector; } });
 var BottleneckDetector_1 = require("./bottlenecks/BottleneckDetector");
@@ -31,6 +31,8 @@ var PerformanceReporter_1 = require("./reporting/PerformanceReporter");
 Object.defineProperty(exports, "PerformanceReporter", { enumerable: true, get: function () { return PerformanceReporter_1.PerformanceReporter; } });
 var PerformanceOrchestrator_1 = require("./orchestration/PerformanceOrchestrator");
 Object.defineProperty(exports, "PerformanceOrchestrator", { enumerable: true, get: function () { return PerformanceOrchestrator_1.PerformanceOrchestrator; } });
+var PerformanceMonitoringSystem_1 = require("./PerformanceMonitoringSystem");
+Object.defineProperty(exports, "PerformanceMonitoringSystem", { enumerable: true, get: function () { return PerformanceMonitoringSystem_1.PerformanceMonitoringSystem; } });
 var AgentDBMonitor_1 = require("../integration/agentdb/AgentDBMonitor");
 Object.defineProperty(exports, "AgentDBMonitor", { enumerable: true, get: function () { return AgentDBMonitor_1.AgentDBMonitor; } });
 // Export types

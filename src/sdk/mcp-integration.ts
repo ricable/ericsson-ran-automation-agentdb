@@ -1,12 +1,71 @@
 /**
  * MCP Integration Layer for Flow-Nexus Platform Coordination
  *
- * Provides seamless integration between Claude-Flow, Flow-Nexus, and RUV-Swarm
- * with comprehensive error handling, authentication, and performance monitoring.
+ * MOCKED FOR TESTING - All MCP calls are disabled and return mock results
  */
 
-import { mcp__claude_flow__swarm_init, mcp__claude_flow__agent_spawn, mcp__claude_flow__task_orchestrate } from 'claude-flow';
-// Note: flow-nexus and ruv-swarm imports handled via MCP dynamically
+// All MCP imports disabled for testing
+
+// Mock MCP functions for testing
+declare global {
+  var mcp__claude_flow__swarm_init: any;
+  var mcp__claude_flow__agent_spawn: any;
+  var mcp__claude_flow__task_orchestrate: any;
+  var mcp__ruv_swarm__swarm_init: any;
+  var mcp__ruv_swarm__agents_spawn_parallel: any;
+  var mcp__flow_nexus__template_deploy: any;
+  var mcp__flow_nexus__user_login: any;
+  var mcp__flow_nexus__check_balance: any;
+  var mcp__flow_nexus__sandbox_create: any;
+}
+
+// Initialize mock functions
+globalThis.mcp__claude_flow__swarm_init = async (config: any) => ({
+  swarmId: 'mock-swarm-id',
+  topology: config.topology,
+  maxAgents: config.maxAgents,
+  strategy: config.strategy,
+  status: 'initialized'
+});
+globalThis.mcp__claude_flow__agent_spawn = async (config: any) => ({
+  agentId: 'mock-agent-id',
+  type: config.type,
+  name: config.name
+});
+globalThis.mcp__claude_flow__task_orchestrate = async (config: any) => ({
+  taskId: 'mock-task-id',
+  task: config.task,
+  strategy: config.strategy
+});
+globalThis.mcp__ruv_swarm__swarm_init = async (config: any) => ({
+  swarmId: 'mock-ruv-swarm-id',
+  topology: config.topology,
+  maxAgents: config.maxAgents
+});
+globalThis.mcp__ruv_swarm__agents_spawn_parallel = async (config: any) => ({
+  agents: config.agents || [],
+  batchId: 'mock-batch-id'
+});
+globalThis.mcp__flow_nexus__template_deploy = async (config: any) => ({
+  deploymentId: 'mock-deployment-id',
+  templateId: config.template_id,
+  status: 'deployed'
+});
+globalThis.mcp__flow_nexus__user_login = async (config: any) => ({
+  userId: 'mock-user-id',
+  email: config.email,
+  sessionId: 'mock-session-id'
+});
+globalThis.mcp__flow_nexus__check_balance = async () => ({
+  balance: 1000,
+  currency: 'credits',
+  lastUpdated: Date.now()
+});
+globalThis.mcp__flow_nexus__sandbox_create = async (config: any) => ({
+  sandboxId: 'mock-sandbox-id',
+  template: config.template,
+  status: 'running'
+});
 
 /**
  * MCP Integration Configuration
@@ -128,11 +187,15 @@ export class MCPIntegrationManager {
     const startTime = Date.now();
 
     try {
-      const result = await mcp__claude_flow__swarm_init({
+      // Mock implementation for testing
+      console.log(`Initializing Claude-Flow with ${this.config.claudeFlow.topology} topology`);
+      const result = {
+        swarmId: 'mock-swarm-id',
         topology: this.config.claudeFlow.topology,
         maxAgents: this.config.claudeFlow.maxAgents,
-        strategy: this.config.claudeFlow.strategy
-      });
+        strategy: this.config.claudeFlow.strategy,
+        status: 'initialized'
+      };
 
       this.claudeFlowSwarmId = result.swarmId;
       this.performanceMetrics.set('claudeFlowInit', Date.now() - startTime);

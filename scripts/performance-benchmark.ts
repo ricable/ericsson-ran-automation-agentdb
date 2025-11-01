@@ -4,7 +4,7 @@ import { MOHierarchyParser } from '../src/rtb/mo-hierarchy-parser';
 import { LDNStructureParser } from '../src/rtb/ldn-structure-parser';
 import { ReservedByParser } from '../src/rtb/reservedby-parser';
 import { SpreadsheetParametersParser } from '../src/rtb/spreadsheet-parameters-parser';
-import { ParameterExtractionPipeline } from '../src/rtb/parameter-extraction-pipeline';
+import { RTBParameterExtractionPipeline } from '../src/rtb/parameter-extraction-pipeline';
 import { DetailedParameterValidator } from '../src/rtb/detailed-parameter-validator';
 import { ParameterStructureMapper } from '../src/rtb/parameter-structure-mapper';
 import { promises as fs } from 'fs';
@@ -343,7 +343,7 @@ class PerformanceBenchmark {
       const memoryAfter = process.memoryUsage();
 
       this.results.push({
-        component: 'ParameterExtractionPipeline',
+        component: 'RTBParameterExtractionPipeline',
         startTime,
         endTime,
         duration: endTime - startTime,
@@ -370,7 +370,7 @@ class PerformanceBenchmark {
     } catch (error) {
       console.log('❌ Extraction Pipeline Benchmark Failed:', error);
       this.results.push({
-        component: 'ParameterExtractionPipeline',
+        component: 'RTBParameterExtractionPipeline',
         startTime,
         endTime: performance.now(),
         duration: 0,

@@ -700,6 +700,16 @@ class WASMTemporalProcessor {
         });
         return patterns;
     }
+    /**
+     * Shutdown temporal reasoning and cleanup resources
+     */
+    async shutdown() {
+        // Clear temporal cache
+        this.temporalCache.clear();
+        // Emit shutdown event
+        this.emit('shutdown');
+        console.log('SPARC Temporal Reasoning shutdown completed');
+    }
 }
 exports.default = SPARCTemporalReasoning;
 //# sourceMappingURL=temporal-reasoning.js.map
